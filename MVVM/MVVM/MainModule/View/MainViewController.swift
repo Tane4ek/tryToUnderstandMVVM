@@ -31,8 +31,13 @@ class MainViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         updateView()
+        setupNavigationBar()
         setupCollectionView()
         setupLayout()
+    }
+    
+    private func setupNavigationBar() {
+        title = "Weather"
     }
     
     private func updateView() {
@@ -65,7 +70,10 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController(viewModel: viewModel.didSelectRow(index: indexPath.row) as! DetailViewModelProtocol)
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource {

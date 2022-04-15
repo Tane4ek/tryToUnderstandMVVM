@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let weatherService = WeatherServiceImpl()
         let mainViewModel = MainViewModel(weatherService: weatherService)
         let mainViewController = MainViewController(viewModel: mainViewModel)
-        
-        window?.rootViewController = mainViewController
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
     }

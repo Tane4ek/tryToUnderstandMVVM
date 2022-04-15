@@ -14,4 +14,6 @@ protocol MainViewModelProtocol {
     func numberOfCities() -> Int
     
     func cellViewModel(index: Int) -> CityCellViewModel?
+    
+    func didSelectRow(index: Int) -> DetailViewModel?
 }

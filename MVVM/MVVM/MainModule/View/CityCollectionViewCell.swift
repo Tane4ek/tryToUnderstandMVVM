@@ -74,6 +74,8 @@ class CityCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupIcon() {
+        icon.contentMode = .center
+        icon.clipsToBounds = true
         icon.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(icon)
     }

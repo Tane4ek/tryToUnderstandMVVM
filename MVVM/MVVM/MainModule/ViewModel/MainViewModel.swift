@@ -12,6 +12,7 @@ final class MainViewModel {
     var weatherService: WeatherService
     private var cellsArray = [CityCellViewModel]()
     private var models: [Weather] = []
+    var detailViewModel: DetailViewModel?
     
     init(weatherService: WeatherService) {
         self.weatherService = weatherService
@@ -34,5 +35,11 @@ extension MainViewModel: MainViewModelProtocol {
     
     func numberOfCities() -> Int {
         return cellsArray.count
+    }
+    
+    func didSelectRow(index: Int) -> DetailViewModel? {
+        if cellsArray.isEmpty { return nil }
+        detailViewModel = DetailViewModel(weather: models[index])
+        return detailViewModel
     }
 }

@@ -25,7 +25,7 @@ class CityCellViewModel {
         case .Lightning: preciptionString = "Lightning"; break
         }
         self.pricipitationTitle = preciptionString
-        self.temperatureTitle = String(describing: weather.temperature)
+        self.temperatureTitle = String(describing: weather.temperature) + "\u{00B0}"
         self.icon = weather.icon
     }
     
